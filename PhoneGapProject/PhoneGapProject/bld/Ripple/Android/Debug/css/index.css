@@ -1,0 +1,259 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    line-height: 1;
+    background-color: aliceblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #007acc;
+    border-bottom: 2px solid #005a91;
+    text-align: center;
+    height: 80px;
+    font-size: 25px;
+    padding: 35px;
+    color: #fff;
+}
+
+nav {
+    text-align: center;
+    margin-top: 25%;
+}
+
+    nav ul {
+        padding: 0;
+        list-style-type: none;
+    }
+
+        nav ul li {
+            list-style-type: none;
+            margin-bottom: 30px;
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: #005e91;
+            border: 1px solid #005a91;
+            height: 30px;
+            padding: 10px;
+            box-shadow: 0 0 2px 2px #888;
+            cursor: pointer;
+            font-weight: bold;
+            color: #fff;
+        }
+
+            nav ul li:hover {
+                background-color: #007acc;
+                color: #000;
+                transition: all 150ms linear;
+            }
+
+footer {
+    background-color: #3e3e42;
+    text-align: center;
+    font-size: 12px;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    padding-top: 30px;
+    color: #fff;
+}
+
+.page {
+    color: #000;
+}
+
+    .page h3 {
+        margin-top: 600px;
+        text-align: center;
+        font-weight: bold;
+        margin: 5px;
+    }
+
+#divNextEvent {
+    display: none;
+}
+
+#divMyEvents {
+    display: none;
+}
+
+#divAllEvents {
+    display: none;
+}
+
+#divShowEvent {
+    display: none;
+}
+
+.listEvents {
+    background-color: #fff;
+    margin: 5px;
+    border-top: 2px solid #a1a1a1;
+}
+
+    .listEvents li {
+        border-bottom: 1px solid #a1a1a1;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+        .listEvents li:hover {
+            background-color: #c3c3c3;
+            transition: all 150ms linear;
+        }
+
+        .listEvents li.subList {
+            display: none;
+        }
+
+            .listEvents li.subList li {
+                border-left: 3px solid #a1a1a1;
+            }
+
+                .listEvents li.subList li:hover {
+                    background-color: #fff;
+                    color: #005e91;
+                    transition: all 150ms linear;
+                }
+
+.btnBack {
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    background-color: #005e91;
+    border: 1px solid #005a91;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px #a1a1a1;
+    width: 40px;
+}
+
+    .btnBack:hover {
+        background-color: #007acc;
+        color: #000;
+        transition: all 150ms linear;
+    }
+
+.btnSubscribe {
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    background-color: #005e91;
+    border: 1px solid #005a91;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px #a1a1a1;
+    width: 100px;
+}
+
+    .btnSubscribe:hover {
+        background-color: #007acc;
+        color: #000;
+        transition: all 150ms linear;
+    }
+
+#content {
+    box-shadow: 0 0 2px 2px #a1a1a1;
+    margin: 20px 10px 0 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+    #content div#titles {
+        border-bottom: 1px solid #a1a1a1;
+    }
+
+        #content div#titles h3 {
+            font-size: 20px;
+            text-align: left;
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #content div#titles h4 {
+            font-size: 10px;
+            text-align: left;
+            margin: 2px;
+            padding: 2px;
+        }
+
+    #content h6 {
+        font-size: 10px;
+        padding: 5px;
+        text-align: left;
+    }
+
+    #content div#divLocation {
+        margin: 5px;
+        padding: 5px;
+        border-top: 1px solid #a1a1a1;
+        font-size: 15px;
+    }
+
+    #content div#divDescription {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid #a1a1a1;
+        font-size: 15px;
+    }
+
+#divShowEvent img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}

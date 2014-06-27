@@ -62,7 +62,7 @@
         } else {
 
             if (element.parent('ul').parent('li').length == 0 && element.attr('id').indexOf('subList') < 0) {
-
+                $('#divShowEvent h4').text('');
                 showEvent(element, id, page);
             }
         }

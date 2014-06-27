@@ -50,15 +50,23 @@ table {
 
 body {
     line-height: 1;
-    background-color: aliceblue;
+    background-color: #1e1e1e;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#wrapper {
+    position: relative;
+    min-height: 100%;
 }
 
 header {
     background-color: #007acc;
     border-bottom: 2px solid #005a91;
     text-align: center;
-    height: 80px;
+    height: 40px;
     font-size: 25px;
     padding: 35px;
     color: #fff;
@@ -66,7 +74,8 @@ header {
 
 nav {
     text-align: center;
-    margin-top: 25%;
+    margin-top: 125px;
+    padding-bottom: 65px;
 }
 
     nav ul {
@@ -108,6 +117,7 @@ footer {
 
 .page {
     color: #000;
+    padding-bottom: 65px;
 }
 
     .page h3 {
@@ -134,7 +144,7 @@ footer {
 }
 
 .listEvents {
-    background-color: #fff;
+    background-color: #3e3e42;
     margin: 5px;
     border-top: 2px solid #a1a1a1;
 }
@@ -208,7 +218,8 @@ footer {
     box-shadow: 0 0 2px 2px #a1a1a1;
     margin: 20px 10px 0 10px;
     padding: 10px;
-    background-color: #fff;
+    background-color: #3e3e42;
+    color: #fff;
 }
 
     #content div#titles {

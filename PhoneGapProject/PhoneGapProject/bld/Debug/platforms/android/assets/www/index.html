@@ -9,103 +9,104 @@
     <link href="css//jquery.mobile-1.4.2.min.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <h2>PhoneGap Events Project</h2>
-    </header>
+    <div id="wrapper">
+        <header>
+            <h2>PhoneGap Events Project</h2>
+        </header>
 
-    <nav id="menu">
-        <ul>
-            <li id="lnkNextEvent">Next Event</li>
-            <li id="lnkMyEvents">My Events</li>
-            <li id="lnkAllEvents">All Events</li>
-        </ul>
-    </nav>
+        <nav id="menu">
+            <ul>
+                <li id="lnkNextEvent">Next Event</li>
+                <li id="lnkMyEvents">My Events</li>
+                <li id="lnkAllEvents">All Events</li>
+            </ul>
+        </nav>
 
-    <div id="divNextEvent" class="page">
-        <div class="btnBack">Back</div>
+        <div id="divNextEvent" class="page">
+            <div class="btnBack">Back</div>
 
-        <h3>Next Event</h3>
+            <h3>Next Event</h3>
 
-        <ul class="listEvents">
-            <li id="1"><span class="title">Party on the beach</span> - <span class="date">27 July 2014</span></li>
-            <li id="subList1" class="subList">
-                <ul>
-                    <li id="8042"><span class="title">DJ No limit</span> - <span class="date">19h</span></li>
-                    <li id="5631"><span class="title">David Guetta</span> - <span class="date">22h</span></li>
-                </ul>
-            </li>
-        </ul>
+            <ul class="listEvents">
+                <li id="1"><span class="title">Party on the beach</span> - <span class="date">27 July 2014</span></li>
+                <li id="subList1" class="subList">
+                    <ul>
+                        <li id="8042"><span class="title">DJ No limit</span> - <span class="date">19h</span></li>
+                        <li id="5631"><span class="title">David Guetta</span> - <span class="date">22h</span></li>
+                    </ul>
+                </li>
+            </ul>
 
-    </div>
-
-    <div id="divMyEvents" class="page">
-        <div class="btnBack">Back</div>
-
-        <h3>My Events</h3>
-
-        <ul class="listEvents">
-            <li id="1"><span class="title">Party on the beach</span> - <span class="date">27 July 2014</span></li>
-            <li id="subList1" class="subList">
-                <ul>
-                    <li id="8042"><span class="title">DJ No limit</span> - <span class="date">19h</span></li>
-                    <li id="5631"><span class="title">David Guetta</span> - <span class="date">22h</span></li>
-                </ul>
-            </li>
-            <li id="2"><span class="title">Meeting with company</span> - <span class="date">18 September 2014</span></li>
-            <li id="3"><span class="title">Sister's Birthday</span> - <span class="date">23 April 2014</span></li>
-            <li id="4"><span class="title">New Year</span> - <span class="date">1 January 2015</span></li>
-            <li id="subList4" class="subList">
-                <ul>
-                    <li id="8042"><span class="title"></span>Apero - <span class="date">18h</span></li>
-                    <li id="5631"><span class="title"></span>Count Time - <span class="date">23h59</span></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
-    <div id="divAllEvents" class="page">
-        <div class="btnBack">Back</div>
-
-        <h3>All Events</h3>
-
-        <ul class="listEvents">
-            <li id="1"><span class="title">Party on the beach</span> - <span class="date">27 July 2014</span></li>
-            <li id="subList1" class="subList">
-                <ul>
-                    <li id="8042"><span class="title">DJ No limit</span> - <span class="date">19h</span></li>
-                    <li id="5631"><span class="title">David Guetta</span> - <span class="date">22h</span></li>
-                </ul>
-            </li>
-            <li id="2"><span class="title">Meeting with company</span> - <span class="date">18 September 2014</span></li>
-            <li id="3"><span class="title">Sister's Birthday</span> - <span class="date">23 April 2014</span></li>
-            <li id="4"><span class="title">New Year</span> - <span class="date">1 January 2015</span></li>
-        </ul>
-    </div>
-
-    <div id="divShowEvent" class="page">
-        <div class="btnBack">Back</div>
-        <div class="btnSubscribe">Subscribe</div>
-
-        <div id="content">
-            <img id="imgEvent" />
-
-            <div id="titles">
-                <h3 id="titleEvent"></h3>
-                <h4 id="titleSubEvent"></h4>
-            </div>
-
-            <h6 id="dateTime"></h6>
-
-            <div id="divLocation"></div>
-
-            <div id="divDescription"></div>
         </div>
+
+        <div id="divMyEvents" class="page">
+            <div class="btnBack">Back</div>
+
+            <h3>My Events</h3>
+
+            <ul class="listEvents">
+                <li id="1"><span class="title">Party on the beach</span> - <span class="date">27 July 2014</span></li>
+                <li id="subList1" class="subList">
+                    <ul>
+                        <li id="8042"><span class="title">DJ No limit</span> - <span class="date">19h</span></li>
+                        <li id="5631"><span class="title">David Guetta</span> - <span class="date">22h</span></li>
+                    </ul>
+                </li>
+                <li id="2"><span class="title">Meeting with company</span> - <span class="date">18 September 2014</span></li>
+                <li id="3"><span class="title">Sister's Birthday</span> - <span class="date">23 April 2014</span></li>
+                <li id="4"><span class="title">New Year</span> - <span class="date">1 January 2015</span></li>
+                <li id="subList4" class="subList">
+                    <ul>
+                        <li id="8042"><span class="title"></span>Apero - <span class="date">18h</span></li>
+                        <li id="5631"><span class="title"></span>Count Time - <span class="date">23h59</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="divAllEvents" class="page">
+            <div class="btnBack">Back</div>
+
+            <h3>All Events</h3>
+
+            <ul class="listEvents">
+                <li id="1"><span class="title">Party on the beach</span> - <span class="date">27 July 2014</span></li>
+                <li id="subList1" class="subList">
+                    <ul>
+                        <li id="8042"><span class="title">DJ No limit</span> - <span class="date">19h</span></li>
+                        <li id="5631"><span class="title">David Guetta</span> - <span class="date">22h</span></li>
+                    </ul>
+                </li>
+                <li id="2"><span class="title">Meeting with company</span> - <span class="date">18 September 2014</span></li>
+                <li id="3"><span class="title">Sister's Birthday</span> - <span class="date">23 April 2014</span></li>
+                <li id="4"><span class="title">New Year</span> - <span class="date">1 January 2015</span></li>
+            </ul>
+        </div>
+
+        <div id="divShowEvent" class="page">
+            <div class="btnBack">Back</div>
+            <div class="btnSubscribe">Subscribe</div>
+
+            <div id="content">
+                <img id="imgEvent" />
+
+                <div id="titles">
+                    <h3 id="titleEvent"></h3>
+                    <h4 id="titleSubEvent"></h4>
+                </div>
+
+                <h6 id="dateTime"></h6>
+
+                <div id="divLocation"></div>
+
+                <div id="divDescription"></div>
+            </div>
+        </div>
+
+        <footer>
+            IIA Laval &copy; 2014
+        </footer>
     </div>
-
-    <footer>
-        IIA Laval &copy; 2014
-    </footer>
-
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/jquery-2.1.1.min.js"></script>

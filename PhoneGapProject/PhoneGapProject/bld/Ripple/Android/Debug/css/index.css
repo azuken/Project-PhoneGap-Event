@@ -313,3 +313,23 @@ footer {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
 }
+
+.btnPicture {
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    background-color: #005e91;
+    border: 1px solid #005a91;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px #a1a1a1;
+    width: 100px;
+}
+
+    .btnPicture:hover {
+        background-color: #007acc;
+        color: #000;
+        transition: all 150ms linear;
+    }

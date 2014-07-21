@@ -120,6 +120,7 @@
     </Content>
     <Content Include="css\jquery.mobile-1.4.2.min.css" />
     <Content Include="index.html" />
+    <Content Include="scripts\capture.js" />
     <Content Include="scripts\index.js" />
     <Content Include="css\index.css" />
     <Content Include="res\cert\android\ant.properties" />

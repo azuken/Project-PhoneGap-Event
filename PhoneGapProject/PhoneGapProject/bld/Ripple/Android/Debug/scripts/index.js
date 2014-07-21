@@ -6,6 +6,8 @@
 ; (function ($) {
     "use strict";
 
+    var user = '0';
+
     document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
@@ -24,19 +26,20 @@
         // TODO: This application has been reactivated. Restore application state here.
     };
 
+    $('#btnLogin').on('click', function () {
+        logIn($('#fieldLogin'));
+    });
+
     $('#lnkNextEvent').on('click', function () {
-        $('#menu').hide(200);
-        $('#divNextEvent').show(200);
+        getNextEvent($('#menu'));
     });
 
     $('#lnkMyEvents').on('click', function () {
-        $('#menu').hide(200);
-        $('#divMyEvents').show(200);
+        getEvents('my');
     });
 
     $('#lnkAllEvents').on('click', function () {
-        $('#menu').hide(200);
-        $('#divAllEvents').show(200);
+        getEvents('all');
     });
 
     $('.btnBack').on('click', function () {
@@ -47,7 +50,7 @@
         $('#menu').show(200);
     });
 
-    $('.listEvents li').on('click', function () {
+    $(document).on('click', '.listEvents li', function () {
         var element = $(this);
 
         var page = element.closest('.page');
@@ -63,43 +66,229 @@
 
             if (element.parent('ul').parent('li').length == 0 && element.attr('id').indexOf('subList') < 0) {
                 $('#divShowEvent h4').text('');
-                showEvent(element, id, page);
+                getEvent(id, page);
             }
         }
     });
 
-    $('.listEvents li ul li').on('click', function () {
+    $(document).on('click', '.listEvents li ul li', function () {
         var element = $(this);
 
         var page = element.closest('.page');
         var id = element.parent('ul').parent('li').prev().attr('id');
 
         $('#divShowEvent h4').text('Sub-event of ' + element.parent('ul').parent('li').prev().find('.title').text());
-        showEvent(element, id, page);
+        getEvent(element.attr('id'), page);
     });
 
     $('.btnSubscribe').on('click', function () {
         var element = $(this);
-
         if (element.text() == 'Subscribe') {
+            subscribtionToEvent(element, 'POST');
+        } else {
+            subscribtionToEvent(element, 'DELETE');
+        }
+    });
+
+    function logIn(email) {
+
+        $.ajax({
+            url: 'http://tpphonegapfaf.azurewebsites.net/api/personnes?email=' + email.val(),
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                
+                user = data.ID;
+                $('#divLogin').hide(200);
+                $('#menu').show(200);
+
+            },
+            error: function (data) {
+                alert("Error " + data.ID);
+
+            }
+        });
+
+    }
+
+    function showEvent(data, page) {
+        $(page).hide(200);
+
+        $('#divShowEvent div.btnSubscribe').attr('id', data.ID);
+        $('#divShowEvent img').attr('src', 'images/' + data.ID + '.jpg');
+        $('#divShowEvent h3').text(data.Titre);
+        $('#divShowEvent h6').text(data.DateDebut + ' - ' + data.DateFin);
+
+        $('#divShowEvent div#divLocation').text(data.Lieu);
+        $('#divShowEvent div#divDescription').text(data.Description);
+
+        if (page.attr('id') == 'divMyEvents') {
+            $('#divShowEvent div.btnSubscribe').text('Unsubscribe');
+        } else {
+            $('#divShowEvent div.btnSubscribe').text('Subscribe');
+        }
+
+        $('#divShowEvent').show(200);
+    }
+
+    function getEvent(id, page, success, error) {
+
+        $.ajax({
+            url: 'http://tpphonegapfaf.azurewebsites.net/api/evenements/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+
+                showEvent(data, page);
+
+            },
+            error: function (data) {
+                alert("Error " + data);
+
+            }
+        });
+    }
+
+    function getEvents(type, success, error) {
+
+        var url, div, parent, date, dateBegin, dateEnd;
+
+        if (type == 'all') {
+            url = 'http://tpphonegapfaf.azurewebsites.net/api/personnes/' + user + '/evenements/nonparticipant'
+            div = '#divAllEvents';
+        } else {
+            url = 'http://tpphonegapfaf.azurewebsites.net/api/personnes/' + user + '/evenements'
+            div = '#divMyEvents';
+        }
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+
+                $(div + ' ul.listEvents').empty();
+
+                for (var i = 0; i < data.length; i++) {
+
+                    dateBegin = new Date(data[i].DateDebut);
+                    dateEnd = new Date(data[i].DateFin);
+
+                    date = 'Du ' + dateBegin.getDate() + '/' +
+                                   dateBegin.getMonth() + '/' +
+                                   dateBegin.getFullYear() +
+                           ' Au ' + dateEnd.getDate() + '/' +
+                                    dateEnd.getMonth() + '/' +
+                                    dateEnd.getFullYear();
+
+                    parent = '<li id="' + data[i].ID + '"><span class="title">' +
+                        data[i].Titre + '</span> - <span class="date">' + date + '</span></li>';
+
+                    getChildren(data[i].ID, div, parent, type);
+                }
+
+
+                $('#menu').hide(200);
+                $(div).show(200);
+
+            },
+            error: function () {
+                alert("Error " + data);
+
+            }
+        });
+
+    }
+
+    function getNextEvent(element, success, error) {
+
+        $.ajax({
+            url: 'http://tpphonegapfaf.azurewebsites.net/api/evenements/next',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+
+                showEvent(data, element);
+
+            },
+            error: function (data) {
+                alert("Error " + data);
+
+            }
+        });
+
+    }
+
+    function getChildren(id, div, parent, type, success, error) {
+
+        var url, hour, hourBegin, hourEnd;
+
+        if (type == 'all') {
+            url = 'http://tpphonegapfaf.azurewebsites.net/api/personnes/' + user + '/evenements/' + id + '/fils/nonparticipant'
+        } else {
+            url = 'http://tpphonegapfaf.azurewebsites.net/api/personnes/' + user + '/evenements/' + id + '/fils'
+        }
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+
+                $(div + ' ul.listEvents').append(parent);
+
+                if (data[0] != null) {
+                    $(div + ' ul.listEvents').append('<li id="subList' + data[0].Evenement_ID + '" class="subList"><ul>');
+                }
+
+                for (var i = 0; i < data.length; i++) {
+
+                    hourBegin = new Date(data[i].DateDebut);
+                    hourEnd = new Date(data[i].DateFin);
+
+                    hour = hourBegin.getHours() + ':' + hourBegin.getMinutes() + ' - ' + hourEnd.getHours() + ':' + hourEnd.getMinutes();
+
+                    $(div + ' ul.listEvents li#subList' + data[i].Evenement_ID + ' ul').append('<li id="' + data[i].ID +
+                        '"><span class="title">' + data[i].Titre + '</span> - <span class="date">' + hour + '</span></li>');
+                }
+
+                if (data[0] != null) {
+                    $(div + ' ul.listEvents').append('</ul></li>');
+                }
+
+            },
+            error: function (data) {
+                alert("Error " + data);
+
+            }
+        });
+    }
+
+    function subscribtionToEvent(element, type, success, error) {
+
+        $.ajax({
+            url: 'http://tpphonegapfaf.azurewebsites.net/api/personnes/' + user + '/evenements?evenementId=' + element.attr('id'),
+            type: type,
+            dataType: 'json',
+            success: function () {
+
+                changeEventState(element, type)
+
+            },
+            error: function () {
+
+                alert("Error " + data);
+
+            }
+        });
+    }
+
+    function changeEventState(element, type) {
+        if (type == 'POST') {
             element.text('Unsubscribe');
         } else {
             element.text('Subscribe');
         }
-    });
-
-    function showEvent(element, id, page) {
-        $(page).hide(200);
-
-        $('#divShowEvent div.btnSubscribe').attr('id', id);
-        $('#divShowEvent img').attr('src', 'images/' + id + '.jpg');
-        $('#divShowEvent h3').text(element.find('span.title').text());
-        $('#divShowEvent h6').text(element.find('span.date').text());
-
-        $('#divShowEvent div#divLocation').text("Location");
-        $('#divShowEvent div#divDescription').text("Here is the description.");
-
-        $('#divShowEvent').show(200);
     }
 
 })(jQuery);

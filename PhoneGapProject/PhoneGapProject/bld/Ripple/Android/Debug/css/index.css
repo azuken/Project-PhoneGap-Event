@@ -50,7 +50,7 @@ table {
 
 body {
     line-height: 1;
-    background-color: #1e1e1e;
+    background-color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
@@ -72,10 +72,50 @@ header {
     color: #fff;
 }
 
+#divLogin {
+    padding: 50px;
+}
+
+#title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#fieldLogin {
+    border-radius: 3px;
+    border: 1px solid #005a91;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px #a1a1a1;
+    margin: 0 auto;
+    width: 90%;
+}
+
+#btnLogin {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #005e91;
+    border: 1px solid #005a91;
+    padding: 10px;
+    box-shadow: 0 0 2px 2px #a1a1a1;
+    width: 90%;
+}
+
+    #btnLogin:hover {
+        background-color: #007acc;
+        color: #000;
+        transition: all 150ms linear;
+    }
+
 nav {
     text-align: center;
     margin-top: 125px;
     padding-bottom: 65px;
+    display: none;
 }
 
     nav ul {
@@ -88,7 +128,7 @@ nav {
             margin-bottom: 30px;
             margin-left: 10px;
             margin-right: 10px;
-            background-color: #005e91;
+            background-color: #007acc;
             border: 1px solid #005a91;
             height: 30px;
             padding: 10px;
@@ -99,13 +139,13 @@ nav {
         }
 
             nav ul li:hover {
-                background-color: #007acc;
+                background-color: #006391;
                 color: #000;
                 transition: all 150ms linear;
             }
 
 footer {
-    background-color: #3e3e42;
+    background-color: #007acc;
     text-align: center;
     font-size: 12px;
     bottom: 0;
@@ -121,15 +161,11 @@ footer {
 }
 
     .page h3 {
-        margin-top: 600px;
+        color: #fff;
         text-align: center;
         font-weight: bold;
         margin: 5px;
     }
-
-#divNextEvent {
-    display: none;
-}
 
 #divMyEvents {
     display: none;
@@ -144,7 +180,7 @@ footer {
 }
 
 .listEvents {
-    background-color: #3e3e42;
+    background-color: #ececec;
     margin: 5px;
     border-top: 2px solid #a1a1a1;
 }
@@ -173,6 +209,10 @@ footer {
                     color: #005e91;
                     transition: all 150ms linear;
                 }
+
+.title, .date {
+    font-size: 12px;
+}
 
 .btnBack {
     text-align: center;
@@ -218,8 +258,8 @@ footer {
     box-shadow: 0 0 2px 2px #a1a1a1;
     margin: 20px 10px 0 10px;
     padding: 10px;
-    background-color: #3e3e42;
-    color: #fff;
+    background-color: #ececec;
+    color: #7b7b7b;
 }
 
     #content div#titles {
@@ -231,6 +271,7 @@ footer {
             text-align: left;
             margin: 5px;
             padding: 5px;
+            color: #000;
         }
 
         #content div#titles h4 {
@@ -258,6 +299,10 @@ footer {
         padding: 5px;
         border: 1px solid #a1a1a1;
         font-size: 15px;
+    }
+
+    #content div#listChildEvent {
+        display: none;
     }
 
 #divShowEvent img {

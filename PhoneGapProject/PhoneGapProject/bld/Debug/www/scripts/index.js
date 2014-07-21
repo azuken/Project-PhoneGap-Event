@@ -55,6 +55,7 @@
         capturePhoto();
     });
 
+
     $(document).on('click', '.listEvents li', function () {
         var element = $(this);
 
@@ -132,6 +133,10 @@
         } else {
             $('#divShowEvent div.btnSubscribe').text('Subscribe');
         }
+        
+        $('.btnGeolocalisation').on('click', function () {
+            window.location = 'geo:' + data.Latitude + ', ' + data.longitude + '?q=' + data.Lieu;
+        });
 
         $('#divShowEvent').show(200);
     }

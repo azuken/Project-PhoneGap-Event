@@ -10,9 +10,10 @@
   </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
     Apache Cordova Team
-  </author>
+	</author>
     <content src="index.html" />
     <access origin="*" />
     <vs:features />
     <preference name="SplashScreen" value="screen" />
+	<plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 </widget>

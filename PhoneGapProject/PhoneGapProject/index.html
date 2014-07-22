@@ -17,6 +17,8 @@
             <h1 id="title">Please, Log In</h1>
             <input type="text" id="fieldLogin" />
             <div id="btnLogin">Login</div>
+			
+			<div class="btnPicture">Joindre une photo</div>
         </div>
 
         <nav id="menu">
@@ -50,11 +52,8 @@
             <div id="content">
 
                 <img id="imgEvent" />
-                <div class="btnPicture">Joindre une photo</div>
+                
                 <div class="btnGeolocalisation">Localize</div>
-                <!--input type="button" onclick="capturePhoto();" value="Joindre une photo" />
-
-				<input type="button" value="Joindre une photo 2" />-->
 				
                 <div id="titles">
                     <h3 id="titleEvent"></h3>
@@ -80,15 +79,8 @@
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>
     <script src="scripts/jquery-2.1.1.min.js"></script>
-    <script src="scripts/capture.js"></script>
     <script src="scripts/index.js"></script>
 
     <!--<script src="scripts/jquery.mobile-1.4.2.min.js"></script>-->
-	
-	<script>
-		$('#btnPicture').on('click', function () {
-			capturePhoto();
-		});
-	</script>
 </body>
 </html>

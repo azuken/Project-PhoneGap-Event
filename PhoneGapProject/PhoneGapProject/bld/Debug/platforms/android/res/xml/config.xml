@@ -15,4 +15,5 @@
     <access origin="*" />
     <vs:features />
     <preference name="SplashScreen" value="screen" />
+	<plugin name="Camera" value="org.apache.cordova.CameraLauncher" />
 </widget>

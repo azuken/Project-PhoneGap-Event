@@ -320,7 +320,7 @@
 	}
 	
 	function capturePhoto() {
-		navigator.notification.alert("test", null, '');
+		//navigator.notification.alert("test", null, '');
 	    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50, targetWidth:600  });
 	}
 	
